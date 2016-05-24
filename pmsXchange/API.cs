@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace ConsoleApplication2
+namespace pmsXchange
 {
     //
     // The .NET service reference for pmsXchange uses a special version of the SiteMinder
@@ -34,12 +30,12 @@ namespace ConsoleApplication2
 
     public enum EWT
     {
-        Unknown                 = 1,
-        Biz_rule                = 3,
-        Authentication          = 4,
-        Authorization           = 6,
-        Required_field_missing  = 10,
-        Processing_exception    = 12
+        Unknown = 1,
+        Biz_rule = 3,
+        Authentication = 4,
+        Authorization = 6,
+        Required_field_missing = 10,
+        Processing_exception = 12
     }
 
     //  ERR     Error Code                                      Description
@@ -55,14 +51,14 @@ namespace ConsoleApplication2
 
     public enum ERR
     {
-        Invalid_rate_code                           = 249,
-        Hotel_not_active                            = 375,
-        Invalid_confirmation_or_cancellation_number = 385, 
-        Invalid_hotel_code                          = 392, 
-        Invalid_room_type                           = 402, 
-        System_error                                = 448, 
-        Unable_to_process                           = 450, 
-        Room_or_rate_not_found                      = 783 
+        Invalid_rate_code = 249,
+        Hotel_not_active = 375,
+        Invalid_confirmation_or_cancellation_number = 385,
+        Invalid_hotel_code = 392,
+        Invalid_room_type = 402,
+        System_error = 448,
+        Unable_to_process = 450,
+        Room_or_rate_not_found = 783
     }
 
     public class ReservationError
@@ -70,7 +66,7 @@ namespace ConsoleApplication2
         public ERR err { get; set; }
         public EWT ewt { get; set; }
         public string errorText { get; set; }
-        public ReservationError (ERR _err, EWT _ewt, string _errorText)
+        public ReservationError(ERR _err, EWT _ewt, string _errorText)
         {
             err = _err;
             ewt = _ewt;
@@ -83,37 +79,37 @@ namespace ConsoleApplication2
             errorText = xml.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
         }
 
-        
+
     }
 
-    public static class SiteMinder
+    public static class API
     {
-        static public void OTA_NotifReportRQ(string usernameAuthenticate, string passwordAuthenticate) 
+        static public void OTA_NotifReportRQ(string usernameAuthenticate, string passwordAuthenticate)
         {
-            pmsXchange.PmsXchangeServiceClient service = new pmsXchange.PmsXchangeServiceClient();
+            pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
 
-            pmsXchange.OTA_NotifReportRQ otaRequestBody = new pmsXchange.OTA_NotifReportRQ();
+            pmsXchangeService.OTA_NotifReportRQ otaRequestBody = new pmsXchangeService.OTA_NotifReportRQ();
 
             service.NotifReportRQ(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), otaRequestBody);
         }
-        static public pmsXchange.OTA_ResRetrieveRS OTA_ReadRQ(string pmsID, string usernameAuthenticate, string passwordAuthenticate, string hotelCode, ResStatus resStatus)
+        static public pmsXchangeService.OTA_ResRetrieveRS OTA_ReadRQ(string pmsID, string usernameAuthenticate, string passwordAuthenticate, string hotelCode, ResStatus resStatus)
         {
-            pmsXchange.PmsXchangeServiceClient service = new pmsXchange.PmsXchangeServiceClient();
+            pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
 
-            pmsXchange.OTA_ReadRQ readRequestBody = new pmsXchange.OTA_ReadRQ();
+            pmsXchangeService.OTA_ReadRQ readRequestBody = new pmsXchangeService.OTA_ReadRQ();
             readRequestBody.Version = 1.0M;
             readRequestBody.EchoToken = Guid.NewGuid().ToString();  // Echo token must be unique.            
             readRequestBody.TimeStamp = DateTime.Now;
             readRequestBody.TimeStampSpecified = true;
             readRequestBody.POS = CreatePOS(pmsID);
 
-            pmsXchange.OTA_ReadRQReadRequests readRequests = new pmsXchange.OTA_ReadRQReadRequests();
-            pmsXchange.OTA_ReadRQReadRequestsHotelReadRequest hotelReadRequest = new pmsXchange.OTA_ReadRQReadRequestsHotelReadRequest();
+            pmsXchangeService.OTA_ReadRQReadRequests readRequests = new pmsXchangeService.OTA_ReadRQReadRequests();
+            pmsXchangeService.OTA_ReadRQReadRequestsHotelReadRequest hotelReadRequest = new pmsXchangeService.OTA_ReadRQReadRequestsHotelReadRequest();
             hotelReadRequest.HotelCode = hotelCode;
             readRequests.Items = new object[] { hotelReadRequest };
 
-            pmsXchange.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteria selectionCriteria = new pmsXchange.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteria();
-            selectionCriteria.SelectionType = pmsXchange.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteriaSelectionType.Undelivered;
+            pmsXchangeService.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteria selectionCriteria = new pmsXchangeService.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteria();
+            selectionCriteria.SelectionType = pmsXchangeService.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteriaSelectionType.Undelivered;
             selectionCriteria.SelectionTypeSpecified = true;  // Must be set to true, or ReadRQ returns an error.
 
             if (resStatus != ResStatus.All)
@@ -123,7 +119,7 @@ namespace ConsoleApplication2
 
             hotelReadRequest.SelectionCriteria = selectionCriteria;
 
- 
+
             readRequestBody.ReadRequests = readRequests;
 
             //
@@ -132,11 +128,11 @@ namespace ConsoleApplication2
 
             return service.ReadRQ(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), readRequestBody);
         }
-        static public pmsXchange.OTA_PingRS OTA_PingRS(string usernameAuthenticate, string passwordAuthenticate)
+        static public pmsXchangeService.OTA_PingRS OTA_PingRS(string usernameAuthenticate, string passwordAuthenticate)
         {
-            pmsXchange.PmsXchangeServiceClient service = new pmsXchange.PmsXchangeServiceClient();
+            pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
 
-            pmsXchange.OTA_PingRQ pingRequestBody = new pmsXchange.OTA_PingRQ();
+            pmsXchangeService.OTA_PingRQ pingRequestBody = new pmsXchangeService.OTA_PingRQ();
             pingRequestBody.Version = 1.0M;
             pingRequestBody.EchoToken = Guid.NewGuid().ToString();  // Echo token must be unique.            
             pingRequestBody.TimeStamp = DateTime.Now;
@@ -146,28 +142,28 @@ namespace ConsoleApplication2
             //
             // Send a ping request.
             //
-            
+
             return service.PingRQ(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), pingRequestBody);
         }
 
-        static private pmsXchange.SecurityHeaderType CreateSecurityHeader(string usernameAuthenticate, string passwordAuthenticate)
+        static private pmsXchangeService.SecurityHeaderType CreateSecurityHeader(string usernameAuthenticate, string passwordAuthenticate)
         {
-            pmsXchange.SecurityHeaderType securityHeader = new pmsXchange.SecurityHeaderType();
-            securityHeader.Any = SiteMinder.CreateUserNameToken(usernameAuthenticate, passwordAuthenticate);
+            pmsXchangeService.SecurityHeaderType securityHeader = new pmsXchangeService.SecurityHeaderType();
+            securityHeader.Any = CreateUserNameToken(usernameAuthenticate, passwordAuthenticate);
             return securityHeader;
         }
-        static private pmsXchange.SourceType[] CreatePOS(string pmsID)
+        static private pmsXchangeService.SourceType[] CreatePOS(string pmsID)
         {
             const string requestorIDType = "22";
 
-            pmsXchange.SourceTypeRequestorID strid = new pmsXchange.SourceTypeRequestorID();
+            pmsXchangeService.SourceTypeRequestorID strid = new pmsXchangeService.SourceTypeRequestorID();
             strid.Type = requestorIDType;
             strid.ID = pmsID;
 
-            pmsXchange.SourceType sourcetype = new pmsXchange.SourceType();
+            pmsXchangeService.SourceType sourcetype = new pmsXchangeService.SourceType();
             sourcetype.RequestorID = strid;
 
-            return new pmsXchange.SourceType[] { sourcetype };
+            return new pmsXchangeService.SourceType[] { sourcetype };
         }
         static private System.Xml.XmlElement[] CreateUserNameToken(string usernameAuthenticate, string passwordAuthenticate)
         {

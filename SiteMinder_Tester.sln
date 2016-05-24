@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication2", "ConsoleApplication2\ConsoleApplication2.csproj", "{3281E940-79B2-46B4-8658-A157D06DEFDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteMinder_Tester", "ConsoleApplication2\SiteMinder_Tester.csproj", "{3281E940-79B2-46B4-8658-A157D06DEFDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pmsXchange", "pmsXchange\pmsXchange.csproj", "{3FF59AF4-BEE3-4AE1-BB49-1A2D1B714FE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3281E940-79B2-46B4-8658-A157D06DEFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3281E940-79B2-46B4-8658-A157D06DEFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3281E940-79B2-46B4-8658-A157D06DEFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FF59AF4-BEE3-4AE1-BB49-1A2D1B714FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FF59AF4-BEE3-4AE1-BB49-1A2D1B714FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FF59AF4-BEE3-4AE1-BB49-1A2D1B714FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FF59AF4-BEE3-4AE1-BB49-1A2D1B714FE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConsoleApplication2.pmsXchange {
+namespace pmsXchange.pmsXchangeService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.siteminder.com.au/pmsxchange", ConfigurationName="pmsXchange.PmsXchangeService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.siteminder.com.au/pmsxchange", ConfigurationName="pmsXchangeService.PmsXchangeService")]
     public interface PmsXchangeService {
         
         // CODEGEN: Generating message contract since the operation ReadRQ is neither RPC nor document wrapped.
@@ -41,10 +41,10 @@ namespace ConsoleApplication2.pmsXchange {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VehicleRetrieveResRQCoreType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TicketingInfoType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StreetNmbrType))]
-        ConsoleApplication2.pmsXchange.ReadRQResponse ReadRQ(ConsoleApplication2.pmsXchange.ReadRQRequest request);
+        pmsXchange.pmsXchangeService.ReadRQResponse ReadRQ(pmsXchange.pmsXchangeService.ReadRQRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.siteminder.com.au/pmsxchange/ReadRQ", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.ReadRQResponse> ReadRQAsync(ConsoleApplication2.pmsXchange.ReadRQRequest request);
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.ReadRQResponse> ReadRQAsync(pmsXchange.pmsXchangeService.ReadRQRequest request);
         
         // CODEGEN: Generating message contract since the operation NotifReportRQ is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.siteminder.com.au/pmsxchange/NotifReportRQ", ReplyAction="*")]
@@ -72,10 +72,10 @@ namespace ConsoleApplication2.pmsXchange {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VehicleRetrieveResRQCoreType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TicketingInfoType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StreetNmbrType))]
-        ConsoleApplication2.pmsXchange.NotifReportRQResponse NotifReportRQ(ConsoleApplication2.pmsXchange.NotifReportRQRequest request);
+        pmsXchange.pmsXchangeService.NotifReportRQResponse NotifReportRQ(pmsXchange.pmsXchangeService.NotifReportRQRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.siteminder.com.au/pmsxchange/NotifReportRQ", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.NotifReportRQResponse> NotifReportRQAsync(ConsoleApplication2.pmsXchange.NotifReportRQRequest request);
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.NotifReportRQResponse> NotifReportRQAsync(pmsXchange.pmsXchangeService.NotifReportRQRequest request);
         
         // CODEGEN: Generating message contract since the operation HotelAvailNotifRQ is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.siteminder.com.au/pmsxchange/HotelAvailNotifRQ", ReplyAction="*")]
@@ -103,10 +103,10 @@ namespace ConsoleApplication2.pmsXchange {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VehicleRetrieveResRQCoreType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TicketingInfoType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StreetNmbrType))]
-        ConsoleApplication2.pmsXchange.HotelAvailNotifRQResponse HotelAvailNotifRQ(ConsoleApplication2.pmsXchange.HotelAvailNotifRQRequest request);
+        pmsXchange.pmsXchangeService.HotelAvailNotifRQResponse HotelAvailNotifRQ(pmsXchange.pmsXchangeService.HotelAvailNotifRQRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.siteminder.com.au/pmsxchange/HotelAvailNotifRQ", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.HotelAvailNotifRQResponse> HotelAvailNotifRQAsync(ConsoleApplication2.pmsXchange.HotelAvailNotifRQRequest request);
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.HotelAvailNotifRQResponse> HotelAvailNotifRQAsync(pmsXchange.pmsXchangeService.HotelAvailNotifRQRequest request);
         
         // CODEGEN: Generating message contract since the operation HotelRateAmountNotifRQ is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.siteminder.com.au/pmsxchange/HotelRateAmountNotifRQ", ReplyAction="*")]
@@ -134,10 +134,10 @@ namespace ConsoleApplication2.pmsXchange {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VehicleRetrieveResRQCoreType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TicketingInfoType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StreetNmbrType))]
-        ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQResponse HotelRateAmountNotifRQ(ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQRequest request);
+        pmsXchange.pmsXchangeService.HotelRateAmountNotifRQResponse HotelRateAmountNotifRQ(pmsXchange.pmsXchangeService.HotelRateAmountNotifRQRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.siteminder.com.au/pmsxchange/HotelRateAmountNotifRQ", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQResponse> HotelRateAmountNotifRQAsync(ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQRequest request);
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.HotelRateAmountNotifRQResponse> HotelRateAmountNotifRQAsync(pmsXchange.pmsXchangeService.HotelRateAmountNotifRQRequest request);
         
         // CODEGEN: Generating message contract since the operation PingRQ is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.siteminder.com.au/pmsxchange/PingRQ", ReplyAction="*")]
@@ -165,10 +165,10 @@ namespace ConsoleApplication2.pmsXchange {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VehicleRetrieveResRQCoreType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TicketingInfoType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StreetNmbrType))]
-        ConsoleApplication2.pmsXchange.PingRQResponse PingRQ(ConsoleApplication2.pmsXchange.PingRQRequest request);
+        pmsXchange.pmsXchangeService.PingRQResponse PingRQ(pmsXchange.pmsXchangeService.PingRQRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.siteminder.com.au/pmsxchange/PingRQ", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.PingRQResponse> PingRQAsync(ConsoleApplication2.pmsXchange.PingRQRequest request);
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.PingRQResponse> PingRQAsync(pmsXchange.pmsXchangeService.PingRQRequest request);
     }
     
     /// <remarks/>
@@ -70129,15 +70129,15 @@ namespace ConsoleApplication2.pmsXchange {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" +
             "")]
-        public ConsoleApplication2.pmsXchange.SecurityHeaderType Security;
+        public pmsXchange.pmsXchangeService.SecurityHeaderType Security;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.OTA_ReadRQ OTA_ReadRQ;
+        public pmsXchange.pmsXchangeService.OTA_ReadRQ OTA_ReadRQ;
         
         public ReadRQRequest() {
         }
         
-        public ReadRQRequest(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_ReadRQ OTA_ReadRQ) {
+        public ReadRQRequest(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_ReadRQ OTA_ReadRQ) {
             this.Security = Security;
             this.OTA_ReadRQ = OTA_ReadRQ;
         }
@@ -70150,12 +70150,12 @@ namespace ConsoleApplication2.pmsXchange {
     public partial class ReadRQResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.OTA_ResRetrieveRS OTA_ResRetrieveRS;
+        public pmsXchange.pmsXchangeService.OTA_ResRetrieveRS OTA_ResRetrieveRS;
         
         public ReadRQResponse() {
         }
         
-        public ReadRQResponse(ConsoleApplication2.pmsXchange.OTA_ResRetrieveRS OTA_ResRetrieveRS) {
+        public ReadRQResponse(pmsXchange.pmsXchangeService.OTA_ResRetrieveRS OTA_ResRetrieveRS) {
             this.OTA_ResRetrieveRS = OTA_ResRetrieveRS;
         }
     }
@@ -70982,15 +70982,15 @@ namespace ConsoleApplication2.pmsXchange {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" +
             "")]
-        public ConsoleApplication2.pmsXchange.SecurityHeaderType Security;
+        public pmsXchange.pmsXchangeService.SecurityHeaderType Security;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.OTA_NotifReportRQ OTA_NotifReportRQ;
+        public pmsXchange.pmsXchangeService.OTA_NotifReportRQ OTA_NotifReportRQ;
         
         public NotifReportRQRequest() {
         }
         
-        public NotifReportRQRequest(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_NotifReportRQ OTA_NotifReportRQ) {
+        public NotifReportRQRequest(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_NotifReportRQ OTA_NotifReportRQ) {
             this.Security = Security;
             this.OTA_NotifReportRQ = OTA_NotifReportRQ;
         }
@@ -71003,12 +71003,12 @@ namespace ConsoleApplication2.pmsXchange {
     public partial class NotifReportRQResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.MessageAcknowledgementType OTA_NotifReportRS;
+        public pmsXchange.pmsXchangeService.MessageAcknowledgementType OTA_NotifReportRS;
         
         public NotifReportRQResponse() {
         }
         
-        public NotifReportRQResponse(ConsoleApplication2.pmsXchange.MessageAcknowledgementType OTA_NotifReportRS) {
+        public NotifReportRQResponse(pmsXchange.pmsXchangeService.MessageAcknowledgementType OTA_NotifReportRS) {
             this.OTA_NotifReportRS = OTA_NotifReportRS;
         }
     }
@@ -71464,15 +71464,15 @@ namespace ConsoleApplication2.pmsXchange {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" +
             "")]
-        public ConsoleApplication2.pmsXchange.SecurityHeaderType Security;
+        public pmsXchange.pmsXchangeService.SecurityHeaderType Security;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.OTA_HotelAvailNotifRQ OTA_HotelAvailNotifRQ;
+        public pmsXchange.pmsXchangeService.OTA_HotelAvailNotifRQ OTA_HotelAvailNotifRQ;
         
         public HotelAvailNotifRQRequest() {
         }
         
-        public HotelAvailNotifRQRequest(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_HotelAvailNotifRQ OTA_HotelAvailNotifRQ) {
+        public HotelAvailNotifRQRequest(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_HotelAvailNotifRQ OTA_HotelAvailNotifRQ) {
             this.Security = Security;
             this.OTA_HotelAvailNotifRQ = OTA_HotelAvailNotifRQ;
         }
@@ -71485,12 +71485,12 @@ namespace ConsoleApplication2.pmsXchange {
     public partial class HotelAvailNotifRQResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.MessageAcknowledgementType OTA_HotelAvailNotifRS;
+        public pmsXchange.pmsXchangeService.MessageAcknowledgementType OTA_HotelAvailNotifRS;
         
         public HotelAvailNotifRQResponse() {
         }
         
-        public HotelAvailNotifRQResponse(ConsoleApplication2.pmsXchange.MessageAcknowledgementType OTA_HotelAvailNotifRS) {
+        public HotelAvailNotifRQResponse(pmsXchange.pmsXchangeService.MessageAcknowledgementType OTA_HotelAvailNotifRS) {
             this.OTA_HotelAvailNotifRS = OTA_HotelAvailNotifRS;
         }
     }
@@ -71932,15 +71932,15 @@ namespace ConsoleApplication2.pmsXchange {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" +
             "")]
-        public ConsoleApplication2.pmsXchange.SecurityHeaderType Security;
+        public pmsXchange.pmsXchangeService.SecurityHeaderType Security;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.OTA_HotelRateAmountNotifRQ OTA_HotelRateAmountNotifRQ;
+        public pmsXchange.pmsXchangeService.OTA_HotelRateAmountNotifRQ OTA_HotelRateAmountNotifRQ;
         
         public HotelRateAmountNotifRQRequest() {
         }
         
-        public HotelRateAmountNotifRQRequest(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_HotelRateAmountNotifRQ OTA_HotelRateAmountNotifRQ) {
+        public HotelRateAmountNotifRQRequest(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_HotelRateAmountNotifRQ OTA_HotelRateAmountNotifRQ) {
             this.Security = Security;
             this.OTA_HotelRateAmountNotifRQ = OTA_HotelRateAmountNotifRQ;
         }
@@ -71953,12 +71953,12 @@ namespace ConsoleApplication2.pmsXchange {
     public partial class HotelRateAmountNotifRQResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.MessageAcknowledgementType OTA_HotelRateAmountNotifRS;
+        public pmsXchange.pmsXchangeService.MessageAcknowledgementType OTA_HotelRateAmountNotifRS;
         
         public HotelRateAmountNotifRQResponse() {
         }
         
-        public HotelRateAmountNotifRQResponse(ConsoleApplication2.pmsXchange.MessageAcknowledgementType OTA_HotelRateAmountNotifRS) {
+        public HotelRateAmountNotifRQResponse(pmsXchange.pmsXchangeService.MessageAcknowledgementType OTA_HotelRateAmountNotifRS) {
             this.OTA_HotelRateAmountNotifRS = OTA_HotelRateAmountNotifRS;
         }
     }
@@ -72458,15 +72458,15 @@ namespace ConsoleApplication2.pmsXchange {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" +
             "")]
-        public ConsoleApplication2.pmsXchange.SecurityHeaderType Security;
+        public pmsXchange.pmsXchangeService.SecurityHeaderType Security;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.OTA_PingRQ OTA_PingRQ;
+        public pmsXchange.pmsXchangeService.OTA_PingRQ OTA_PingRQ;
         
         public PingRQRequest() {
         }
         
-        public PingRQRequest(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_PingRQ OTA_PingRQ) {
+        public PingRQRequest(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_PingRQ OTA_PingRQ) {
             this.Security = Security;
             this.OTA_PingRQ = OTA_PingRQ;
         }
@@ -72479,23 +72479,23 @@ namespace ConsoleApplication2.pmsXchange {
     public partial class PingRQResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.opentravel.org/OTA/2003/05", Order=0)]
-        public ConsoleApplication2.pmsXchange.OTA_PingRS OTA_PingRS;
+        public pmsXchange.pmsXchangeService.OTA_PingRS OTA_PingRS;
         
         public PingRQResponse() {
         }
         
-        public PingRQResponse(ConsoleApplication2.pmsXchange.OTA_PingRS OTA_PingRS) {
+        public PingRQResponse(pmsXchange.pmsXchangeService.OTA_PingRS OTA_PingRS) {
             this.OTA_PingRS = OTA_PingRS;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface PmsXchangeServiceChannel : ConsoleApplication2.pmsXchange.PmsXchangeService, System.ServiceModel.IClientChannel {
+    public interface PmsXchangeServiceChannel : pmsXchange.pmsXchangeService.PmsXchangeService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PmsXchangeServiceClient : System.ServiceModel.ClientBase<ConsoleApplication2.pmsXchange.PmsXchangeService>, ConsoleApplication2.pmsXchange.PmsXchangeService {
+    public partial class PmsXchangeServiceClient : System.ServiceModel.ClientBase<pmsXchange.pmsXchangeService.PmsXchangeService>, pmsXchange.pmsXchangeService.PmsXchangeService {
         
         public PmsXchangeServiceClient() {
         }
@@ -72517,128 +72517,128 @@ namespace ConsoleApplication2.pmsXchange {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication2.pmsXchange.ReadRQResponse ConsoleApplication2.pmsXchange.PmsXchangeService.ReadRQ(ConsoleApplication2.pmsXchange.ReadRQRequest request) {
+        pmsXchange.pmsXchangeService.ReadRQResponse pmsXchange.pmsXchangeService.PmsXchangeService.ReadRQ(pmsXchange.pmsXchangeService.ReadRQRequest request) {
             return base.Channel.ReadRQ(request);
         }
         
-        public ConsoleApplication2.pmsXchange.OTA_ResRetrieveRS ReadRQ(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_ReadRQ OTA_ReadRQ) {
-            ConsoleApplication2.pmsXchange.ReadRQRequest inValue = new ConsoleApplication2.pmsXchange.ReadRQRequest();
+        public pmsXchange.pmsXchangeService.OTA_ResRetrieveRS ReadRQ(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_ReadRQ OTA_ReadRQ) {
+            pmsXchange.pmsXchangeService.ReadRQRequest inValue = new pmsXchange.pmsXchangeService.ReadRQRequest();
             inValue.Security = Security;
             inValue.OTA_ReadRQ = OTA_ReadRQ;
-            ConsoleApplication2.pmsXchange.ReadRQResponse retVal = ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).ReadRQ(inValue);
+            pmsXchange.pmsXchangeService.ReadRQResponse retVal = ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).ReadRQ(inValue);
             return retVal.OTA_ResRetrieveRS;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.ReadRQResponse> ConsoleApplication2.pmsXchange.PmsXchangeService.ReadRQAsync(ConsoleApplication2.pmsXchange.ReadRQRequest request) {
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.ReadRQResponse> pmsXchange.pmsXchangeService.PmsXchangeService.ReadRQAsync(pmsXchange.pmsXchangeService.ReadRQRequest request) {
             return base.Channel.ReadRQAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.ReadRQResponse> ReadRQAsync(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_ReadRQ OTA_ReadRQ) {
-            ConsoleApplication2.pmsXchange.ReadRQRequest inValue = new ConsoleApplication2.pmsXchange.ReadRQRequest();
+        public System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.ReadRQResponse> ReadRQAsync(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_ReadRQ OTA_ReadRQ) {
+            pmsXchange.pmsXchangeService.ReadRQRequest inValue = new pmsXchange.pmsXchangeService.ReadRQRequest();
             inValue.Security = Security;
             inValue.OTA_ReadRQ = OTA_ReadRQ;
-            return ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).ReadRQAsync(inValue);
+            return ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).ReadRQAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication2.pmsXchange.NotifReportRQResponse ConsoleApplication2.pmsXchange.PmsXchangeService.NotifReportRQ(ConsoleApplication2.pmsXchange.NotifReportRQRequest request) {
+        pmsXchange.pmsXchangeService.NotifReportRQResponse pmsXchange.pmsXchangeService.PmsXchangeService.NotifReportRQ(pmsXchange.pmsXchangeService.NotifReportRQRequest request) {
             return base.Channel.NotifReportRQ(request);
         }
         
-        public ConsoleApplication2.pmsXchange.MessageAcknowledgementType NotifReportRQ(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_NotifReportRQ OTA_NotifReportRQ) {
-            ConsoleApplication2.pmsXchange.NotifReportRQRequest inValue = new ConsoleApplication2.pmsXchange.NotifReportRQRequest();
+        public pmsXchange.pmsXchangeService.MessageAcknowledgementType NotifReportRQ(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_NotifReportRQ OTA_NotifReportRQ) {
+            pmsXchange.pmsXchangeService.NotifReportRQRequest inValue = new pmsXchange.pmsXchangeService.NotifReportRQRequest();
             inValue.Security = Security;
             inValue.OTA_NotifReportRQ = OTA_NotifReportRQ;
-            ConsoleApplication2.pmsXchange.NotifReportRQResponse retVal = ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).NotifReportRQ(inValue);
+            pmsXchange.pmsXchangeService.NotifReportRQResponse retVal = ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).NotifReportRQ(inValue);
             return retVal.OTA_NotifReportRS;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.NotifReportRQResponse> ConsoleApplication2.pmsXchange.PmsXchangeService.NotifReportRQAsync(ConsoleApplication2.pmsXchange.NotifReportRQRequest request) {
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.NotifReportRQResponse> pmsXchange.pmsXchangeService.PmsXchangeService.NotifReportRQAsync(pmsXchange.pmsXchangeService.NotifReportRQRequest request) {
             return base.Channel.NotifReportRQAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.NotifReportRQResponse> NotifReportRQAsync(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_NotifReportRQ OTA_NotifReportRQ) {
-            ConsoleApplication2.pmsXchange.NotifReportRQRequest inValue = new ConsoleApplication2.pmsXchange.NotifReportRQRequest();
+        public System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.NotifReportRQResponse> NotifReportRQAsync(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_NotifReportRQ OTA_NotifReportRQ) {
+            pmsXchange.pmsXchangeService.NotifReportRQRequest inValue = new pmsXchange.pmsXchangeService.NotifReportRQRequest();
             inValue.Security = Security;
             inValue.OTA_NotifReportRQ = OTA_NotifReportRQ;
-            return ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).NotifReportRQAsync(inValue);
+            return ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).NotifReportRQAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication2.pmsXchange.HotelAvailNotifRQResponse ConsoleApplication2.pmsXchange.PmsXchangeService.HotelAvailNotifRQ(ConsoleApplication2.pmsXchange.HotelAvailNotifRQRequest request) {
+        pmsXchange.pmsXchangeService.HotelAvailNotifRQResponse pmsXchange.pmsXchangeService.PmsXchangeService.HotelAvailNotifRQ(pmsXchange.pmsXchangeService.HotelAvailNotifRQRequest request) {
             return base.Channel.HotelAvailNotifRQ(request);
         }
         
-        public ConsoleApplication2.pmsXchange.MessageAcknowledgementType HotelAvailNotifRQ(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_HotelAvailNotifRQ OTA_HotelAvailNotifRQ) {
-            ConsoleApplication2.pmsXchange.HotelAvailNotifRQRequest inValue = new ConsoleApplication2.pmsXchange.HotelAvailNotifRQRequest();
+        public pmsXchange.pmsXchangeService.MessageAcknowledgementType HotelAvailNotifRQ(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_HotelAvailNotifRQ OTA_HotelAvailNotifRQ) {
+            pmsXchange.pmsXchangeService.HotelAvailNotifRQRequest inValue = new pmsXchange.pmsXchangeService.HotelAvailNotifRQRequest();
             inValue.Security = Security;
             inValue.OTA_HotelAvailNotifRQ = OTA_HotelAvailNotifRQ;
-            ConsoleApplication2.pmsXchange.HotelAvailNotifRQResponse retVal = ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).HotelAvailNotifRQ(inValue);
+            pmsXchange.pmsXchangeService.HotelAvailNotifRQResponse retVal = ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).HotelAvailNotifRQ(inValue);
             return retVal.OTA_HotelAvailNotifRS;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.HotelAvailNotifRQResponse> ConsoleApplication2.pmsXchange.PmsXchangeService.HotelAvailNotifRQAsync(ConsoleApplication2.pmsXchange.HotelAvailNotifRQRequest request) {
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.HotelAvailNotifRQResponse> pmsXchange.pmsXchangeService.PmsXchangeService.HotelAvailNotifRQAsync(pmsXchange.pmsXchangeService.HotelAvailNotifRQRequest request) {
             return base.Channel.HotelAvailNotifRQAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.HotelAvailNotifRQResponse> HotelAvailNotifRQAsync(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_HotelAvailNotifRQ OTA_HotelAvailNotifRQ) {
-            ConsoleApplication2.pmsXchange.HotelAvailNotifRQRequest inValue = new ConsoleApplication2.pmsXchange.HotelAvailNotifRQRequest();
+        public System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.HotelAvailNotifRQResponse> HotelAvailNotifRQAsync(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_HotelAvailNotifRQ OTA_HotelAvailNotifRQ) {
+            pmsXchange.pmsXchangeService.HotelAvailNotifRQRequest inValue = new pmsXchange.pmsXchangeService.HotelAvailNotifRQRequest();
             inValue.Security = Security;
             inValue.OTA_HotelAvailNotifRQ = OTA_HotelAvailNotifRQ;
-            return ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).HotelAvailNotifRQAsync(inValue);
+            return ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).HotelAvailNotifRQAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQResponse ConsoleApplication2.pmsXchange.PmsXchangeService.HotelRateAmountNotifRQ(ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQRequest request) {
+        pmsXchange.pmsXchangeService.HotelRateAmountNotifRQResponse pmsXchange.pmsXchangeService.PmsXchangeService.HotelRateAmountNotifRQ(pmsXchange.pmsXchangeService.HotelRateAmountNotifRQRequest request) {
             return base.Channel.HotelRateAmountNotifRQ(request);
         }
         
-        public ConsoleApplication2.pmsXchange.MessageAcknowledgementType HotelRateAmountNotifRQ(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_HotelRateAmountNotifRQ OTA_HotelRateAmountNotifRQ) {
-            ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQRequest inValue = new ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQRequest();
+        public pmsXchange.pmsXchangeService.MessageAcknowledgementType HotelRateAmountNotifRQ(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_HotelRateAmountNotifRQ OTA_HotelRateAmountNotifRQ) {
+            pmsXchange.pmsXchangeService.HotelRateAmountNotifRQRequest inValue = new pmsXchange.pmsXchangeService.HotelRateAmountNotifRQRequest();
             inValue.Security = Security;
             inValue.OTA_HotelRateAmountNotifRQ = OTA_HotelRateAmountNotifRQ;
-            ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQResponse retVal = ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).HotelRateAmountNotifRQ(inValue);
+            pmsXchange.pmsXchangeService.HotelRateAmountNotifRQResponse retVal = ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).HotelRateAmountNotifRQ(inValue);
             return retVal.OTA_HotelRateAmountNotifRS;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQResponse> ConsoleApplication2.pmsXchange.PmsXchangeService.HotelRateAmountNotifRQAsync(ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQRequest request) {
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.HotelRateAmountNotifRQResponse> pmsXchange.pmsXchangeService.PmsXchangeService.HotelRateAmountNotifRQAsync(pmsXchange.pmsXchangeService.HotelRateAmountNotifRQRequest request) {
             return base.Channel.HotelRateAmountNotifRQAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQResponse> HotelRateAmountNotifRQAsync(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_HotelRateAmountNotifRQ OTA_HotelRateAmountNotifRQ) {
-            ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQRequest inValue = new ConsoleApplication2.pmsXchange.HotelRateAmountNotifRQRequest();
+        public System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.HotelRateAmountNotifRQResponse> HotelRateAmountNotifRQAsync(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_HotelRateAmountNotifRQ OTA_HotelRateAmountNotifRQ) {
+            pmsXchange.pmsXchangeService.HotelRateAmountNotifRQRequest inValue = new pmsXchange.pmsXchangeService.HotelRateAmountNotifRQRequest();
             inValue.Security = Security;
             inValue.OTA_HotelRateAmountNotifRQ = OTA_HotelRateAmountNotifRQ;
-            return ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).HotelRateAmountNotifRQAsync(inValue);
+            return ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).HotelRateAmountNotifRQAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication2.pmsXchange.PingRQResponse ConsoleApplication2.pmsXchange.PmsXchangeService.PingRQ(ConsoleApplication2.pmsXchange.PingRQRequest request) {
+        pmsXchange.pmsXchangeService.PingRQResponse pmsXchange.pmsXchangeService.PmsXchangeService.PingRQ(pmsXchange.pmsXchangeService.PingRQRequest request) {
             return base.Channel.PingRQ(request);
         }
         
-        public ConsoleApplication2.pmsXchange.OTA_PingRS PingRQ(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_PingRQ OTA_PingRQ) {
-            ConsoleApplication2.pmsXchange.PingRQRequest inValue = new ConsoleApplication2.pmsXchange.PingRQRequest();
+        public pmsXchange.pmsXchangeService.OTA_PingRS PingRQ(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_PingRQ OTA_PingRQ) {
+            pmsXchange.pmsXchangeService.PingRQRequest inValue = new pmsXchange.pmsXchangeService.PingRQRequest();
             inValue.Security = Security;
             inValue.OTA_PingRQ = OTA_PingRQ;
-            ConsoleApplication2.pmsXchange.PingRQResponse retVal = ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).PingRQ(inValue);
+            pmsXchange.pmsXchangeService.PingRQResponse retVal = ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).PingRQ(inValue);
             return retVal.OTA_PingRS;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.PingRQResponse> ConsoleApplication2.pmsXchange.PmsXchangeService.PingRQAsync(ConsoleApplication2.pmsXchange.PingRQRequest request) {
+        System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.PingRQResponse> pmsXchange.pmsXchangeService.PmsXchangeService.PingRQAsync(pmsXchange.pmsXchangeService.PingRQRequest request) {
             return base.Channel.PingRQAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication2.pmsXchange.PingRQResponse> PingRQAsync(ConsoleApplication2.pmsXchange.SecurityHeaderType Security, ConsoleApplication2.pmsXchange.OTA_PingRQ OTA_PingRQ) {
-            ConsoleApplication2.pmsXchange.PingRQRequest inValue = new ConsoleApplication2.pmsXchange.PingRQRequest();
+        public System.Threading.Tasks.Task<pmsXchange.pmsXchangeService.PingRQResponse> PingRQAsync(pmsXchange.pmsXchangeService.SecurityHeaderType Security, pmsXchange.pmsXchangeService.OTA_PingRQ OTA_PingRQ) {
+            pmsXchange.pmsXchangeService.PingRQRequest inValue = new pmsXchange.pmsXchangeService.PingRQRequest();
             inValue.Security = Security;
             inValue.OTA_PingRQ = OTA_PingRQ;
-            return ((ConsoleApplication2.pmsXchange.PmsXchangeService)(this)).PingRQAsync(inValue);
+            return ((pmsXchange.pmsXchangeService.PmsXchangeService)(this)).PingRQAsync(inValue);
         }
     }
 }

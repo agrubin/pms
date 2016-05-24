@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="DZrjVftjaNjGsfsKECp3BSfUsgc=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="fNsRh5qzlG7dlbj8Mey+a1uUwO4=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="PmsXchangeServiceSoap11">
       <properties>
@@ -221,7 +221,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="PmsXchangeServicePort" contract="pmsXchange.PmsXchangeService" bindingType="basicHttpBinding" address="https://cmtpi.siteminder.com/pmsxchangev2/services/SPIORANGE" bindingConfiguration="PmsXchangeServiceSoap11">
+    <endpoint name="PmsXchangeServicePort" contract="pmsXchangeService.PmsXchangeService" bindingType="basicHttpBinding" address="https://cmtpi.siteminder.com/pmsxchangev2/services/SPIORANGE" bindingConfiguration="PmsXchangeServiceSoap11">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>https://cmtpi.siteminder.com:443/pmsxchangev2/services/SPIORANGE</serializedValue>
@@ -236,7 +236,7 @@
           <serializedValue>PmsXchangeServiceSoap11</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>pmsXchange.PmsXchangeService</serializedValue>
+          <serializedValue>pmsXchangeService.PmsXchangeService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
