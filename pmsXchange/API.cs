@@ -128,6 +128,7 @@ namespace pmsXchange
 
             return service.ReadRQ(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), readRequestBody);
         }
+
         static public pmsXchangeService.OTA_PingRS OTA_PingRS(string usernameAuthenticate, string passwordAuthenticate)
         {
             pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
