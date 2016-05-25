@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Configuration;
+using System.ServiceModel.Configuration;
+using System.ServiceModel;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -79,8 +83,27 @@ namespace pmsXchange
             string xml = _errorText;
             errorText = xml.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
         }
+    }
 
+    public sealed class ServiceConnection
+    {
+        public static ServiceConnection Instance { get { return lazyConnection.Value; }  }
+        private static readonly Lazy<ServiceConnection> lazyConnection = new Lazy<ServiceConnection>(() => new ServiceConnection());
+        public pmsXchangeService.PmsXchangeServiceClient service { get; private set; }
 
+        private ServiceConnection()
+        {
+            InitializeService();
+        }
+
+        public void InitializeService()
+        {
+            BasicHttpBinding binding = new BasicHttpBinding();
+            binding.Security.Mode = BasicHttpSecurityMode.Transport;
+
+            EndpointAddress address = new EndpointAddress("https://cmtpi.siteminder.com/pmsxchangev2/services/SPIORANGE");
+            service = new pmsXchangeService.PmsXchangeServiceClient(binding, address);
+        }
     }
 
     public static class API
@@ -95,9 +118,10 @@ namespace pmsXchange
 
             service.NotifReportRQ(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), otaRequestBody);
         }
+
         static public pmsXchangeService.OTA_ResRetrieveRS OTA_ReadRQ(string pmsID, string usernameAuthenticate, string passwordAuthenticate, string hotelCode, ResStatus resStatus)
         {
-            pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
+            pmsXchangeService.PmsXchangeServiceClient service = ServiceConnection.Instance.service;
 
             pmsXchangeService.OTA_ReadRQ readRequestBody = new pmsXchangeService.OTA_ReadRQ();
             readRequestBody.Version = 1.0M;
@@ -134,7 +158,7 @@ namespace pmsXchange
 
         static public async Task<pmsXchangeService.PingRQResponse> OTA_PingRS(string usernameAuthenticate, string passwordAuthenticate)
         {
-            pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
+            pmsXchangeService.PmsXchangeServiceClient service = ServiceConnection.Instance.service;
 
             pmsXchangeService.OTA_PingRQ pingRequestBody = new pmsXchangeService.OTA_PingRQ();
             pingRequestBody.Version = 1.0M;
@@ -156,6 +180,7 @@ namespace pmsXchange
             securityHeader.Any = CreateUserNameToken(usernameAuthenticate, passwordAuthenticate);
             return securityHeader;
         }
+
         static private pmsXchangeService.SourceType[] CreatePOS(string pmsID)
         {
             pmsXchangeService.SourceTypeRequestorID strid = new pmsXchangeService.SourceTypeRequestorID();
@@ -167,6 +192,7 @@ namespace pmsXchange
 
             return new pmsXchangeService.SourceType[] { sourcetype };
         }
+
         static private System.Xml.XmlElement[] CreateUserNameToken(string usernameAuthenticate, string passwordAuthenticate)
         {
             //
