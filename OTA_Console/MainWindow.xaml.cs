@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using pmsXchange;
-using pmsXchange.pmsXchangeService;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -14,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+using pmsXchange;
+using pmsXchange.pmsXchangeService;
 
 namespace OTA_Console
 {
@@ -34,10 +35,23 @@ namespace OTA_Console
 
         private async void Button_Ping_Click(object sender, RoutedEventArgs e)
         {
-            OTA_ResRetrieveRS reservationsResponse = API.OTA_ReadRQ(pmsID, username, password, hotelCode, ResStatus.All);
+            //OTA_ResRetrieveRS reservationsResponse = API.OTA_ReadRQ(pmsID, username, password, hotelCode, ResStatus.All);
 
-            PingRQResponse pingResponse = await API.OTA_PingRS(username, password);
-            string echoToken = pingResponse.OTA_PingRS.EchoToken;
+            PingRQResponse pingResponse = await API.OTA_PingRS(username, password + "9");
+            if (pingResponse.OTA_PingRS.Items[0].GetType() == typeof(SuccessType))
+            {
+                string echo = pingResponse.OTA_PingRS.Items[1].ToString();
+            }
+            else
+            {
+                ErrorsType errors = (ErrorsType)pingResponse.OTA_PingRS.Items[0];
+                foreach (var error in errors.Error)
+                {
+                    
+                }
+            }
+
+
             //ReservationError resErr = new ReservationError(ERR.Hotel_not_active, EWT.Processing_exception, "hello");        
         }
     }

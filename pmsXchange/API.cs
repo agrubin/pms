@@ -10,7 +10,7 @@ namespace pmsXchange
 {
     //
     // The .NET service reference for pmsXchange uses a special version of the SiteMinder
-    // WSDL file specifically generated for .NET clients:
+    // WSDL file generated specifically for .NET clients:
     //
     // https://cmtpi.siteminder.com/pmsxchangev2/services/SPIORANGE/pmsxchange_flat.wsdl 
     //
@@ -27,8 +27,8 @@ namespace pmsXchange
     // ---      ----------              -----------      
     // 1	    Unknown                 Indicates an unknown error.
     // 3	    Biz rule                Indicates that the XML message has passed a low-level validation check, but that the business rules for the request message were not met.
-    // 4	    Authentication          Indicates the message lacks adequate security credentials
-    // 6	    Authorization           Indicates the message lacks adequate security credentials
+    // 4	    Authentication          Indicates the message lacks adequate security credentials.
+    // 6	    Authorization           Indicates the message lacks adequate security credentials.
     // 10	    Required field missing  Indicates that an element or attribute that is required in by the schema (or required by agreement between trading partners) is missing from the message.
     //                                  For PmsXchange this type will also be returned if the xml message does not meet the restrictions (e.g data types) specified by the xml schema.
     // 12	    Processing exception    Indicates that during processing of the request that a not further defined exception occurred.
@@ -45,14 +45,14 @@ namespace pmsXchange
 
     //  ERR     Error Code                                      Description
     //  ---     ----------                                      -----------
-    //  249     Invalid rate code                               Rate does not exist
-    //  375     Hotel not active                                Hotel is not enabled to receive inventory updates
-    //  385     Invalid confirmation or cancellation number     Confirmation or cancellation number does not exist
-    //  392     Invalid hotel code                              Hotel does not exist
-    //  402     Invalid room type                               Room does not exist
+    //  249     Invalid rate code                               Rate does not exist.
+    //  375     Hotel not active                                Hotel is not enabled to receive inventory updates.
+    //  385     Invalid confirmation or cancellation number     Confirmation or cancellation number does not exist.
+    //  392     Invalid hotel code                              Hotel does not exist.
+    //  402     Invalid room type                               Room does not exist.
     //  448     System error
     //  450     Unable to process	 
-    //  783     Room or rate not found                          Room and rate combination does not exist
+    //  783     Room or rate not found                          Room and rate combination does not exist.
 
     public enum ERR
     {
@@ -85,9 +85,14 @@ namespace pmsXchange
         }
     }
 
+    //
+    // The service connection is implemeted as a singleton so it is only instantiated and initalized one time
+    // upon the first access, then the same connection is returned on each subsequent access.
+    //
     public sealed class ServiceConnection
     {
         public static ServiceConnection Instance { get { return lazyConnection.Value; }  }
+        private const string endpointURI = "https://cmtpi.siteminder.com/pmsxchangev2/services/SPIORANGE";  // Provided by SiteMinder.
         private static readonly Lazy<ServiceConnection> lazyConnection = new Lazy<ServiceConnection>(() => new ServiceConnection());
         public pmsXchangeService.PmsXchangeServiceClient service { get; private set; }
 
@@ -101,15 +106,16 @@ namespace pmsXchange
             BasicHttpBinding binding = new BasicHttpBinding();
             binding.Security.Mode = BasicHttpSecurityMode.Transport;
 
-            EndpointAddress address = new EndpointAddress("https://cmtpi.siteminder.com/pmsxchangev2/services/SPIORANGE");
+            EndpointAddress address = new EndpointAddress(endpointURI);
             service = new pmsXchangeService.PmsXchangeServiceClient(binding, address);
         }
     }
 
     public static class API
     {
-        private const string requestorIDType = "22";  // This value is set by SiteMinder.
-     
+        private const string requestorIDType = "22";  // This value is provided by SiteMinder.
+        private const string textType = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText";
+
         static public void OTA_NotifReportRQ(string usernameAuthenticate, string passwordAuthenticate)
         {
             pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
@@ -165,7 +171,7 @@ namespace pmsXchange
             pingRequestBody.EchoToken = Guid.NewGuid().ToString();  // Echo token must be unique.            
             pingRequestBody.TimeStamp = DateTime.Now;
             pingRequestBody.TimeStampSpecified = true;
-            pingRequestBody.EchoData = "SPI Orange ping.";
+            pingRequestBody.EchoData = "good echo";
 
             //
             // Send a ping request.
@@ -209,7 +215,7 @@ namespace pmsXchange
             // Password is transmitted in plain text.
             //
 
-            password.SetAttribute("Type", "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText");
+            password.SetAttribute("Type", textType);
 
             XmlText usernameText = doc.CreateTextNode(usernameAuthenticate);
             XmlText passwordText = doc.CreateTextNode(passwordAuthenticate);
