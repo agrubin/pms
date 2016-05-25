@@ -37,7 +37,7 @@ namespace OTA_Console
         {
             //OTA_ResRetrieveRS reservationsResponse = API.OTA_ReadRQ(pmsID, username, password, hotelCode, ResStatus.All);
 
-            PingRQResponse pingResponse = await API.OTA_PingRS(username, password + "9");
+            PingRQResponse pingResponse = await API.OTA_PingRS(username, password);
             if (pingResponse.OTA_PingRS.Items[0].GetType() == typeof(SuccessType))
             {
                 string echo = pingResponse.OTA_PingRS.Items[1].ToString();

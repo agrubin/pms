@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Xml;
 
+using pmsXchange.pmsXchangeService;
+
 namespace pmsXchange
 {
     //
@@ -94,7 +96,7 @@ namespace pmsXchange
         public static ServiceConnection Instance { get { return lazyConnection.Value; }  }
         private const string endpointURI = "https://cmtpi.siteminder.com/pmsxchangev2/services/SPIORANGE";  // Provided by SiteMinder.
         private static readonly Lazy<ServiceConnection> lazyConnection = new Lazy<ServiceConnection>(() => new ServiceConnection());
-        public pmsXchangeService.PmsXchangeServiceClient service { get; private set; }
+        public PmsXchangeServiceClient service { get; private set; }
 
         private ServiceConnection()
         {
@@ -107,7 +109,7 @@ namespace pmsXchange
             binding.Security.Mode = BasicHttpSecurityMode.Transport;
 
             EndpointAddress address = new EndpointAddress(endpointURI);
-            service = new pmsXchangeService.PmsXchangeServiceClient(binding, address);
+            service = new PmsXchangeServiceClient(binding, address);
         }
     }
 
@@ -118,18 +120,18 @@ namespace pmsXchange
 
         static public void OTA_NotifReportRQ(string usernameAuthenticate, string passwordAuthenticate)
         {
-            pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
+            PmsXchangeServiceClient service = new PmsXchangeServiceClient();
 
-            pmsXchangeService.OTA_NotifReportRQ otaRequestBody = new pmsXchangeService.OTA_NotifReportRQ();
+            OTA_NotifReportRQ otaRequestBody = new OTA_NotifReportRQ();
 
             service.NotifReportRQ(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), otaRequestBody);
         }
 
-        static public pmsXchangeService.OTA_ResRetrieveRS OTA_ReadRQ(string pmsID, string usernameAuthenticate, string passwordAuthenticate, string hotelCode, ResStatus resStatus)
+        static public OTA_ResRetrieveRS OTA_ReadRQ(string pmsID, string usernameAuthenticate, string passwordAuthenticate, string hotelCode, ResStatus resStatus)
         {
-            pmsXchangeService.PmsXchangeServiceClient service = ServiceConnection.Instance.service;
+            PmsXchangeServiceClient service = ServiceConnection.Instance.service;
 
-            pmsXchangeService.OTA_ReadRQ readRequestBody = new pmsXchangeService.OTA_ReadRQ();
+            pmsXchangeService.OTA_ReadRQ readRequestBody = new OTA_ReadRQ();
             readRequestBody.Version = 1.0M;
             readRequestBody.EchoToken = Guid.NewGuid().ToString();  // Echo token must be unique.            
             readRequestBody.TimeStamp = DateTime.Now;
@@ -141,7 +143,7 @@ namespace pmsXchange
             hotelReadRequest.HotelCode = hotelCode;
             readRequests.Items = new object[] { hotelReadRequest };
 
-            pmsXchangeService.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteria selectionCriteria = new pmsXchangeService.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteria();
+            OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteria selectionCriteria = new pmsXchangeService.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteria();
             selectionCriteria.SelectionType = pmsXchangeService.OTA_ReadRQReadRequestsHotelReadRequestSelectionCriteriaSelectionType.Undelivered;
             selectionCriteria.SelectionTypeSpecified = true;  // Must be set to true, or ReadRQ returns an error.
 
@@ -162,32 +164,51 @@ namespace pmsXchange
             return service.ReadRQ(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), readRequestBody);
         }
 
-        static public async Task<pmsXchangeService.PingRQResponse> OTA_PingRS(string usernameAuthenticate, string passwordAuthenticate)
+        static public async Task<PingRQResponse> OTA_PingRS(string usernameAuthenticate, string passwordAuthenticate)
         {
-            pmsXchangeService.PmsXchangeServiceClient service = ServiceConnection.Instance.service;
+            PingRQResponse response = null;
 
-            pmsXchangeService.OTA_PingRQ pingRequestBody = new pmsXchangeService.OTA_PingRQ();
-            pingRequestBody.Version = 1.0M;
-            pingRequestBody.EchoToken = Guid.NewGuid().ToString();  // Echo token must be unique.            
-            pingRequestBody.TimeStamp = DateTime.Now;
-            pingRequestBody.TimeStampSpecified = true;
-            pingRequestBody.EchoData = "good echo";
+            try
+            {
+                PmsXchangeServiceClient service = ServiceConnection.Instance.service;
 
-            //
-            // Send a ping request.
-            //
-           
-            return await service.PingRQAsync(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), pingRequestBody);
+                pmsXchangeService.OTA_PingRQ pingRequestBody = new pmsXchangeService.OTA_PingRQ();
+                pingRequestBody.Version = 1.0M;
+                pingRequestBody.EchoToken = Guid.NewGuid().ToString();  // Echo token must be unique.            
+                pingRequestBody.TimeStamp = DateTime.Now;
+                pingRequestBody.TimeStampSpecified = true;
+                pingRequestBody.EchoData = "good echo";
+                int q = 0;
+                int h = 7 / q;
+                //
+                // Send an asynchronous ping request.
+                //
+
+                response = await service.PingRQAsync(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), pingRequestBody);
+            }
+            catch(Exception ex)
+            {
+                response = new PingRQResponse();
+                ErrorsType errors =  new ErrorsType();
+                ErrorType [] err1 = new ErrorType[1];
+                err1[0] = new ErrorType();
+                err1[0].Type = EWT.Processing_exception.ToString();
+                err1[0].Value = ex.Message;
+                response.OTA_PingRS = new OTA_PingRS();
+                response.OTA_PingRS.Items = new object[] { errors };
+            }
+
+            return response;
         }
 
-        static private pmsXchangeService.SecurityHeaderType CreateSecurityHeader(string usernameAuthenticate, string passwordAuthenticate)
+        static private SecurityHeaderType CreateSecurityHeader(string usernameAuthenticate, string passwordAuthenticate)
         {
             pmsXchangeService.SecurityHeaderType securityHeader = new pmsXchangeService.SecurityHeaderType();
             securityHeader.Any = CreateUserNameToken(usernameAuthenticate, passwordAuthenticate);
             return securityHeader;
         }
 
-        static private pmsXchangeService.SourceType[] CreatePOS(string pmsID)
+        static private SourceType[] CreatePOS(string pmsID)
         {
             pmsXchangeService.SourceTypeRequestorID strid = new pmsXchangeService.SourceTypeRequestorID();
             strid.Type = requestorIDType;
