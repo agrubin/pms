@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace pmsXchange
@@ -84,6 +85,8 @@ namespace pmsXchange
 
     public static class API
     {
+        private const string requestorIDType = "22";  // This value is set by SiteMinder.
+     
         static public void OTA_NotifReportRQ(string usernameAuthenticate, string passwordAuthenticate)
         {
             pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
@@ -129,7 +132,7 @@ namespace pmsXchange
             return service.ReadRQ(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), readRequestBody);
         }
 
-        static public pmsXchangeService.OTA_PingRS OTA_PingRS(string usernameAuthenticate, string passwordAuthenticate)
+        static public async Task<pmsXchangeService.PingRQResponse> OTA_PingRS(string usernameAuthenticate, string passwordAuthenticate)
         {
             pmsXchangeService.PmsXchangeServiceClient service = new pmsXchangeService.PmsXchangeServiceClient();
 
@@ -143,8 +146,8 @@ namespace pmsXchange
             //
             // Send a ping request.
             //
-
-            return service.PingRQ(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), pingRequestBody);
+           
+            return await service.PingRQAsync(CreateSecurityHeader(usernameAuthenticate, passwordAuthenticate), pingRequestBody);
         }
 
         static private pmsXchangeService.SecurityHeaderType CreateSecurityHeader(string usernameAuthenticate, string passwordAuthenticate)
@@ -155,8 +158,6 @@ namespace pmsXchange
         }
         static private pmsXchangeService.SourceType[] CreatePOS(string pmsID)
         {
-            const string requestorIDType = "22";
-
             pmsXchangeService.SourceTypeRequestorID strid = new pmsXchangeService.SourceTypeRequestorID();
             strid.Type = requestorIDType;
             strid.ID = pmsID;
